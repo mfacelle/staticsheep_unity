@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; width: 100%; height: 10%; top: 0; left: 0; right: 0; flex-direction: row; border-top-width: 10px; border-left-width: 10px; border-bottom-width: 10px; border-right-width: 10px;"/>
+        <ui:ProgressBar value="22" title="my-progress" name="loadstage_progressbar"/>
+    </ui:VisualElement>
+</ui:UXML>
