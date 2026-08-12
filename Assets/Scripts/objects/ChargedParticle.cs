@@ -1,13 +1,11 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class ChargedParticle : MonoBehaviour
+public class ChargedParticle : ChargedObject
 {
 	private Rigidbody2D body;
 
     private IObjectPool<ChargedParticle> objectPool;
-
-	[SerializeField] private float charge;
 
 	// eventually this should just be a callback for DeleteParticle
 	private PhysicsManager physicsManager;
@@ -59,10 +57,5 @@ public class ChargedParticle : MonoBehaviour
         {
             objectPool.Release(this);
         }
-	}
-
-	public float GetCharge()
-	{
-		return charge;
 	}
 }

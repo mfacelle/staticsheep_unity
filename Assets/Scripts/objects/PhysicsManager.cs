@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 // contains constants and functions for physics stuff
 public class PhysicsManager : MonoBehaviour
 {
@@ -30,25 +31,32 @@ public class PhysicsManager : MonoBehaviour
 
 
 	// apply electromagnetic force to all particles
-	void FixedUpdate() {
+	void FixedUpdate() 
+	{
 		// need to add logic for scene being paused
-		foreach (ChargedParticle particle in chargedParticles) {
+		foreach (ChargedParticle particle in chargedParticles) 
+		{
 
 			Vector2 particlePosition = particle.transform.position;
 			float accelX = 0;
 			float accelY = 0;
 
 			// ignore any calculations if particle is neutral-charged
-			if (particle.GetCharge() == 0) {
+			// (note that a charge value of 0 can still be affected by omnitive/ablative charges)
+			if (particle.Type == ChargedObject.ChargeType.Zero) 
+			{
 				continue;
 			}
 
 			// get total of all forces that affect the particle
-			foreach (ChargedObject chargedObj in chargedObjects) {
+			foreach (ChargedObject chargedObj in chargedObjects) 
+			{
 				// ignore if object is neutral-charged
-				if (chargedObj.GetCharge() == 0) {
+				if (chargedObj.Type == ChargedObject.ChargeType.Zero) 
+				{
 					continue;
 				}
+
 				// calculate force and get angle
 				Vector2 objectPosition = chargedObj.transform.position;
 				float dx = particlePosition.x - objectPosition.x;
@@ -56,14 +64,19 @@ public class PhysicsManager : MonoBehaviour
 				float distanceSq = dx*dx + dy*dy + SOFTENING*SOFTENING;
 				if (distanceSq < MAX_DISTANCE * MAX_DISTANCE) 
 				{
-					float chargeProduct = chargedObj.GetCharge() * particle.GetCharge();
+					float chargeProduct = chargedObj.Charge * particle.Charge;
 					float forceMag = E * chargeProduct / distanceSq;
 
-					// if objects have the same charge, negate the force
-					// if (chargeProduct > 0)
-					// {
-					// 	forceMag *= -1;
-					// }
+					// make omnitive always attract
+					if (chargedObj.Type == ChargedObject.ChargeType.Omnitive)
+					{
+						// need to also handle case where particle.Charge == 0
+					}
+					// make ablative always repel
+					else if (chargedObj.Type == ChargedObject.ChargeType.Omnitive)
+					{
+						// need to also handle case where particle.Charge == 0
+					}
 
 					float distance = Mathf.Sqrt(distanceSq);
 					accelX += forceMag * (dx/distance);

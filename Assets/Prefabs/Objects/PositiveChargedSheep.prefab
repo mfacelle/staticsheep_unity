@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8607327566165418364}
   - component: {fileID: 7501314731699451055}
-  - component: {fileID: 6878717843530989131}
   - component: {fileID: 5878363215471623938}
   - component: {fileID: 8899375475581717653}
   m_Layer: 8
-  m_Name: PositiveGoalSheep
-  m_TagString: goal
+  m_Name: PositiveChargedSheep
+  m_TagString: chargedobject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,19 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2c975328f4b4e9c94324b890a15863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargedObject
-  charge: 5
---- !u!114 &6878717843530989131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4646020174093939257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b9355989cad404ca5ab98a37ab822c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GoalObject
+  <Charge>k__BackingField: 5
 --- !u!212 &5878363215471623938
 SpriteRenderer:
   serializedVersion: 3
