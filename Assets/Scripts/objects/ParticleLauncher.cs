@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Pool;
+using UnityEngine.EventSystems;
 
 public class ParticleLauncher : MonoBehaviour
 {    
@@ -13,61 +13,28 @@ public class ParticleLauncher : MonoBehaviour
     // player object, for getting position to calculate particle trajectory
     [SerializeField] private GameObject PlayerObject;
 
-    // making public static to easily change this during gameplay (for now, this is not a great method)
-    public GameObject ParticlePrefab;
+    // making public to easily change this during gameplay (for now, this is not a great method)
+    [SerializeField] private GameObject particlePrefab;
 
 
-    private IObjectPool<ChargedParticle> particlePool;
-    private int particlePoolDefaultCapacity = 20;
-    private int particlePoolMaxSize = 100;
-
-
-    private void Awake()
-    {
-        // initialize object pool for particles
-        particlePool = new ObjectPool<ChargedParticle>(
-            CreateParticle,       // Function to create new item if pool is empty
-            OnTakeFromPool,         // Function called when taking item from pool
-            OnReturnedToPool,       // Function called when returning item to pool
-            OnDestroyPoolObject,    // Function called if maxPoolSize is exceeded
-            true,                   // Collection check (throws error if releasing an item already in pool)
-            particlePoolDefaultCapacity, 
-            particlePoolMaxSize
-        );
-    }
-
-    // ---
-    // object pool callbacks
     private ChargedParticle CreateParticle()
     {
-        GameObject newParticle = Instantiate(ParticlePrefab);
+        // was originally trying an object pool for this, but it's likely unnecessary.
+        // if re-adding, need to ensure we handle the different types of particles, or
+        // the pool will incorrectly use the wrong type of particles
+        
+        GameObject newParticle = Instantiate(particlePrefab);
         if (newParticle.TryGetComponent<ChargedParticle>(out var particle))
         {
             return particle;
         }
         else
         {
-            Debug.Log($"ParticlePrefab has a null ChargedParticle component!");
+            Debug.Log($"particlePrefab has a null ChargedParticle component!");
             return null;
         }
     }
 
-    private void OnTakeFromPool(ChargedParticle particle)
-    {
-        particle.gameObject.SetActive(true);
-    }
-
-    private void OnReturnedToPool(ChargedParticle particle)
-    {
-        particle.gameObject.SetActive(false);
-    }
-
-    private void OnDestroyPoolObject(ChargedParticle particle)
-    {
-        Destroy(particle.gameObject);
-    }
-
-    // ---
 
     private void OnEnable()
     {
@@ -87,7 +54,19 @@ public class ParticleLauncher : MonoBehaviour
 
     public void OnLaunch(InputAction.CallbackContext context)
     {
+        // do nothing if a UI element was pressed
+        // TODO - need to figure out a real workaround for this.
+        // maybe just make it so buttons aren't real clickable buttons...? keyboard only?
+        // if (EventSystem.current.IsPointerOverGameObject())
+        // {
+        //     Debug.Log("over UI");
+        //     return;
+        // }
+
         Debug.Log("Mouse Click Detected!");
+
+        // TODO consider adding a pause after launch to avoid launching particles
+        // if player somehow clicks every single frame.
         
         Vector2 screenMousePos = Mouse.current.position.ReadValue();
 
@@ -100,19 +79,19 @@ public class ParticleLauncher : MonoBehaviour
         Vector2 launchVector = (mouseWorldPos - playerPos);
         launchVector.Normalize();
 
-        Debug.Log($"Clicked at screen coordinates: {screenMousePos}");
-        Debug.Log($"Clicked at world coordinates: {mouseWorldPos}");
-        Debug.Log($"Launch vector: {launchVector}");
-
-
         // create particle at player location (using object pool), then give it velocity
-        ChargedParticle newParticle = particlePool.Get();
+        ChargedParticle newParticle = CreateParticle();
         if (newParticle != null)
         {
-            newParticle.Init(PhysicsManager, particlePool);
+            newParticle.Init(PhysicsManager);
             newParticle.gameObject.transform.position = PlayerObject.transform.position;
             newParticle.ApplyForce(launchVector * initialSpeed);
             PhysicsManager.AddParticle(newParticle);
         }
+    }
+
+    public void SetParticlePrefab(GameObject newParticlePrefab)
+    {
+        particlePrefab = newParticlePrefab;
     }
 }

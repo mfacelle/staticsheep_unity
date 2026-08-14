@@ -65,22 +65,44 @@ public class PhysicsManager : MonoBehaviour
 				if (distanceSq < MAX_DISTANCE * MAX_DISTANCE) 
 				{
 					float chargeProduct = chargedObj.Charge * particle.Charge;
-					float forceMag = E * chargeProduct / distanceSq;
+					float force = E * chargeProduct / distanceSq;
+
+					// consider refactoring this, maybe some kind of virtual function?
 
 					// make omnitive always attract
 					if (chargedObj.Type == ChargedObject.ChargeType.Omnitive)
 					{
-						// need to also handle case where particle.Charge == 0
+						// if particle had no charge, recalculate force
+						if (particle.Charge == 0)
+						{
+							force = E * chargedObj.Charge * chargedObj.Charge / distanceSq;
+						}
+
+						// ensure force is negative, to attract
+						if (force > 0)
+						{
+							force *= -1;
+						}
 					}
 					// make ablative always repel
 					else if (chargedObj.Type == ChargedObject.ChargeType.Omnitive)
 					{
-						// need to also handle case where particle.Charge == 0
+						// if particle had no charge, recalculate force
+						if (particle.Charge == 0)
+						{
+							force = E * chargedObj.Charge * chargedObj.Charge / distanceSq;
+						}
+
+						// ensure force is negative, to attract
+						if (force < 0)
+						{
+							force *= -1;
+						}
 					}
 
 					float distance = Mathf.Sqrt(distanceSq);
-					accelX += forceMag * (dx/distance);
-					accelY += forceMag * (dy/distance);
+					accelX += force * (dx/distance);
+					accelY += force * (dy/distance);
 				}
 			}
 

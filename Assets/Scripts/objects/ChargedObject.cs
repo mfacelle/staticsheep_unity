@@ -20,4 +20,31 @@ public class ChargedObject : MonoBehaviour
 	[field: SerializeField] public float Charge {get; private set;}
 
 	[field: SerializeField] public ChargeType Type {get; private set;}
+
+
+	// -----
+	// TEMP CODE until I make real assets with different colors.
+	// color sheep (and, also particles due to derived class), based on charge
+	private SpriteRenderer spriteRenderer;
+	void Start()
+	{
+		spriteRenderer = GetComponent<SpriteRenderer>();
+	}
+	void Update()
+	{
+		// don't color the omnitive "goal" sheep
+		if (Type != ChargeType.Omnitive)
+		{
+			if (Charge > 0)
+			{
+				// red filter
+				spriteRenderer.color = new Color(1f, 0f, 0f, 0.7f); 
+			}
+			else if (Charge < 0)
+			{
+				// blue filter
+				spriteRenderer.color = new Color(0f, 0f, 1.0f, 0.7f); 
+			}
+		}
+	}
 }

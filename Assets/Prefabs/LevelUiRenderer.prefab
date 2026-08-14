@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6986718073069004782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774569761918892730}
+  - component: {fileID: 3319413399944943069}
+  - component: {fileID: 7643140781002102041}
+  m_Layer: 5
+  m_Name: LevelUiRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774569761918892730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986718073069004782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1931382934 &3319413399944943069
+PanelRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986718073069004782}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  serializedVersion: 1
+  m_PanelSettings: {fileID: 11400000, guid: 63e80866c84e4420dae96ddcca651029, type: 2}
+  sourceAsset: {fileID: 9197481963319205126, guid: cf97cb3e5d2b447bfa829f210884816e, type: 3}
+  m_ParentUI: {fileID: 0}
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_Position: 0
+--- !u!114 &7643140781002102041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986718073069004782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affac401de9694ddaa54f92d2367d8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelToolbarManager
+  hotkeyActions:
+  - {fileID: -5729841381119637069, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 6152324063412762073, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 7697681805555097237, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 8636573183826625079, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: -202340311081163567, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 6755947620044979214, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 4390618499651151993, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: -3794383550875205101, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 1874850664058948551, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: -7214813272128716767, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  particlePrefabs:
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: fcd3f944da3374fe6b9e325adac5e020, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  buttonNames:
+  - ItemBtn1
+  - ItemBtn2
+  - ItemBtn3
+  - ItemBtn4
+  - ItemBtn5
+  - ItemBtn6
+  - ItemBtn7
+  - ItemBtn8
+  - ItemBtn9
+  - ItemBtn0
+  particleLauncher: {fileID: 0}

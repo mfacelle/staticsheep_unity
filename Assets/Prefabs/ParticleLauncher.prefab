@@ -48,4 +48,4 @@ MonoBehaviour:
   launchAction: {fileID: 44128164113523075, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   PhysicsManager: {fileID: 0}
   PlayerObject: {fileID: 0}
-  ParticlePrefab: {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
+  particlePrefab: {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
