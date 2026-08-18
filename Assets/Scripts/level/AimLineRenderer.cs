@@ -17,15 +17,11 @@ public class AimLineRenderer : MonoBehaviour
 
     void Update()
     {
-        // Get character position
         Vector3 startPos = playerTransform.position;
-
 
         Vector2 screenMousePos = Mouse.current.position.ReadValue();
         Vector3 endPos = Camera.main.ScreenToWorldPoint(new Vector3(screenMousePos.x, screenMousePos.y, Camera.main.nearClipPlane));        
-        // Vector2 playerPos = PlayerObject.transform.position;
 
-        // Vector3 endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         endPos.z = 0f;
 
         startPos = SnapToPixelGrid(startPos);
@@ -34,6 +30,8 @@ public class AimLineRenderer : MonoBehaviour
         lineRenderer.SetPosition(0, startPos);
         lineRenderer.SetPosition(1, endPos);
 
+        // note: even setting width to 1px doesn't quite render the way I was expecting.
+        // good enough for now, but need a more robust, pixel-perfect solution eventually
         lineRenderer.startWidth = 1.0f / pixelsPerUnit;
         lineRenderer.endWidth = 1.0f / pixelsPerUnit;
 
