@@ -37,8 +37,8 @@ public class AimLineRenderer : MonoBehaviour
         lineRenderer.startWidth = 1.0f / pixelsPerUnit;
         lineRenderer.endWidth = 1.0f / pixelsPerUnit;
 
-        lineRenderer.startColor = new Color(0.0f, 0.0f, 1.0f, 0.5f);
-        lineRenderer.endColor = new Color(1.0f, 0.0f, 0.0f, 0.5f);
+        lineRenderer.startColor = new Color(0.0f, 1.0f, 0.0f, 0.25f);
+        lineRenderer.endColor = new Color(0.0f, 1.0f, 0.0f, 0.0f);
     }
 
     Vector3 SnapToPixelGrid(Vector3 worldPos)
