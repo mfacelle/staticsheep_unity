@@ -16,6 +16,10 @@ public class ParticleLauncher : MonoBehaviour
     // making public to easily change this during gameplay (for now, this is not a great method)
     [SerializeField] private GameObject particlePrefab;
 
+    // how many frames to pause between particle launches
+    [SerializeField] private int delayNumFrames = 30;
+    private int currentNumDelayFrames = 0;
+
 
     private ChargedParticle CreateParticle()
     {
@@ -54,39 +58,53 @@ public class ParticleLauncher : MonoBehaviour
 
     public void OnLaunch(InputAction.CallbackContext context)
     {
-        // do nothing if a UI element was pressed
-        // TODO - need to figure out a real workaround for this.
-        // maybe just make it so buttons aren't real clickable buttons...? keyboard only?
-        // if (EventSystem.current.IsPointerOverGameObject())
-        // {
-        //     Debug.Log("over UI");
-        //     return;
-        // }
-
-        Debug.Log("Mouse Click Detected!");
-
-        // TODO consider adding a pause after launch to avoid launching particles
-        // if player somehow clicks every single frame.
-        
-        Vector2 screenMousePos = Mouse.current.position.ReadValue();
-
-        // convert to world position, and flatten to 2d vector
-        Vector3 worldMousePos3D = Camera.main.ScreenToWorldPoint(new Vector3(screenMousePos.x, screenMousePos.y, Camera.main.nearClipPlane));        
-        Vector2 mouseWorldPos = (Vector2)worldMousePos3D; 
-
-        Vector2 playerPos = PlayerObject.transform.position;
-
-        Vector2 launchVector = (mouseWorldPos - playerPos);
-        launchVector.Normalize();
-
-        // create particle at player location (using object pool), then give it velocity
-        ChargedParticle newParticle = CreateParticle();
-        if (newParticle != null)
+        // only allow particle launch if frame delay has been met
+        if (currentNumDelayFrames <= 0)
         {
-            newParticle.Init(PhysicsManager);
-            newParticle.gameObject.transform.position = PlayerObject.transform.position;
-            newParticle.ApplyForce(launchVector * initialSpeed);
-            PhysicsManager.AddParticle(newParticle);
+            // do nothing if a UI element was pressed
+            // TODO - need to figure out a real workaround for this.
+            // maybe just make it so buttons aren't real clickable buttons...? keyboard only?
+            // if (EventSystem.current.IsPointerOverGameObject())
+            // {
+            //     Debug.Log("over UI");
+            //     return;
+            // }
+            
+            Vector2 screenMousePos = Mouse.current.position.ReadValue();
+
+            // convert to world position, and flatten to 2d vector
+            Vector3 worldMousePos3D = Camera.main.ScreenToWorldPoint(new Vector3(screenMousePos.x, screenMousePos.y, Camera.main.nearClipPlane));        
+            Vector2 mouseWorldPos = (Vector2)worldMousePos3D; 
+
+            Vector2 playerPos = PlayerObject.transform.position;
+
+            Vector2 launchVector = (mouseWorldPos - playerPos);
+            launchVector.Normalize();
+
+            // create particle at player location (using object pool), then give it velocity
+            ChargedParticle newParticle = CreateParticle();
+            if (newParticle != null)
+            {
+                newParticle.Init(PhysicsManager);
+                newParticle.gameObject.transform.position = PlayerObject.transform.position;
+                newParticle.ApplyForce(launchVector * initialSpeed);
+                PhysicsManager.AddParticle(newParticle);
+            }
+
+            // set delay for next particle launch
+            currentNumDelayFrames = delayNumFrames;
+
+            // decrement count of player particles
+            LevelLoader.Instance.Player.DecrementNumParticles();
+        }
+    }
+
+    void Update()
+    {
+        if (currentNumDelayFrames > 0)
+        {
+            // decrement frame counter to delay particle launches
+            currentNumDelayFrames--;
         }
     }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &451649355191516772
+--- !u!1 &5622488721190032460
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7097242542084366538}
-  - component: {fileID: 2267917330349282590}
+  - component: {fileID: 2354922443169481546}
+  - component: {fileID: 6572627927782670165}
   m_Layer: 0
-  m_Name: ParticleLauncher
+  m_Name: Level2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7097242542084366538
+--- !u!4 &2354922443169481546
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451649355191516772}
+  m_GameObject: {fileID: 5622488721190032460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03387, y: 0.13549, z: 0}
+  m_LocalPosition: {x: -2.49272, y: -2.88037, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2267917330349282590
+--- !u!114 &6572627927782670165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451649355191516772}
+  m_GameObject: {fileID: 5622488721190032460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca89dc07bfb04ec89164c211e182755, type: 3}
+  m_Script: {fileID: 11500000, guid: 187bee6a8d80f431fb793bd856af68a4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParticleLauncher
-  initialSpeed: 4
-  launchAction: {fileID: 44128164113523075, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  PhysicsManager: {fileID: 0}
-  PlayerObject: {fileID: 0}
-  particlePrefab: {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
-  delayNumFrames: 30
+  m_EditorClassIdentifier: Assembly-CSharp::LevelInfo
+  <Name>k__BackingField: level2
+  <LevelIndex>k__BackingField: 1
+  <InitialNumParticles>k__BackingField: 100
+  <Stages>k__BackingField:
+  - level2_stage1
+  - level2_stage2
+  - level2_stage3
+  - level2_stage4
+  - level2_stage5
+  - level2_stage6

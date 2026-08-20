@@ -42,11 +42,20 @@ public class LevelLoaderButtonManager : MonoBehaviour
             Button button = root.Q<Button>(buttonNames[idx]);
             if (button != null) 
             {
-                // register callback with lambda, providing the level to load
-                // TODO consider providing LevelLoader as a variable, not a singleton?
-                Debug.Log("setting load callback for idx " + idx + ", level: " + levels[idx].Name);
-                LevelInfo level = levels[idx];
-                button.clicked += () => LevelLoader.Instance.LoadLevel(level);
+                Debug.Log("level button idx=" + idx + "; HighestCompleteLevelIdx=" + LevelLoader.Instance.Player.HighestCompleteLevelIdx);
+                // enable button if player has completed at least up to the level before this
+                if (LevelLoader.Instance.Player.HighestCompleteLevelIdx >= idx-1)
+                {
+                    // register callback with lambda, providing the level to load
+                    // TODO consider providing LevelLoader as a variable, not a singleton?
+                    Debug.Log("setting load callback for idx " + idx + ", level: " + levels[idx].Name);
+                    LevelInfo level = levels[idx];
+                    button.clicked += () => LevelLoader.Instance.LoadLevel(level);
+                }
+                else
+                {
+                    button.SetEnabled(false);
+                }
             }
         }
     }

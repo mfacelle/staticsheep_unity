@@ -8,6 +8,8 @@ public class PlayerInfo : ScriptableObject
 {
     public int CurrentNumParticles {get; private set; } = 1;
 
+    public int HighestCompleteLevelIdx {get; private set; } = -1;
+
     public void DecrementNumParticles()
     {
         CurrentNumParticles--;
@@ -16,5 +18,14 @@ public class PlayerInfo : ScriptableObject
     public void SetNumParticles(int numParticles)
     {
         CurrentNumParticles = numParticles;
+    }
+
+    public void LevelCompleted(int levelIndex)
+    {
+        Debug.Log("marking level " + levelIndex + " complete. current HighestCompleteLevelIdx=" + HighestCompleteLevelIdx);
+        if (levelIndex > HighestCompleteLevelIdx)
+        {
+            HighestCompleteLevelIdx = levelIndex;
+        }
     }
 }

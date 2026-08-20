@@ -11,7 +11,7 @@ public class LevelLoader : MonoBehaviour
 
     [field: SerializeField] private string LevelSelectSceneName = "level_select";
 
-    private LevelInfo currentLevel;
+    public LevelInfo CurrentLevel {get; private set; }
 
     private int currentStageIndex;
 
@@ -28,7 +28,7 @@ public class LevelLoader : MonoBehaviour
             Destroy(gameObject);
         }
 
-        currentLevel = null;
+        CurrentLevel = null;
         currentStageIndex = 0;
     }
 
@@ -36,7 +36,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadLevel(LevelInfo level)
     {
         Debug.Log("Loading level " + level.Name);
-        currentLevel = level;
+        CurrentLevel = level;
         // also need to set things like player's initial num particles, etc
         currentStageIndex = 0;
         Player.SetNumParticles(level.InitialNumParticles);
@@ -51,9 +51,12 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextStage()
     {
         currentStageIndex++;
-        if (currentStageIndex >= currentLevel.Stages.Length)
+        if (currentStageIndex >= CurrentLevel.Stages.Length)
         {
             Debug.Log("level cleared!");
+            // mark level as cleared in player info
+            Player.LevelCompleted(CurrentLevel.LevelIndex);
+            
             // for now, just return to level select.
             // eventually, want to hanlde things like player progresison, unlocking more levels,
             // displaying score, etc
@@ -61,7 +64,7 @@ public class LevelLoader : MonoBehaviour
         }
         else
         {
-            LoadScene(currentLevel.Stages[currentStageIndex]);
+            LoadScene(CurrentLevel.Stages[currentStageIndex]);
         }
     }
 
@@ -98,5 +101,10 @@ public class LevelLoader : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    public string GetCurrentStageName()
+    {
+        return "Stage " + (currentStageIndex + 1);
     }
 }

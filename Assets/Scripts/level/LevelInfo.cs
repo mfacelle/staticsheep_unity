@@ -7,6 +7,8 @@ public class LevelInfo : MonoBehaviour
     // level name, mainly for debugging
     [field: SerializeField] public string Name {get; private set; }
 
+    [field: SerializeField] public int LevelIndex {get; private set; }
+
     // number of particles the player will start this level with
     [field: SerializeField] public int InitialNumParticles {get; private set; } = 100;
 
