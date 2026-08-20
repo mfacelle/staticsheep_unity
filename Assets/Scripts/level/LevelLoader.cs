@@ -2,35 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour
+public class LevelLoader : Singleton<LevelLoader>
 {
-    // singleton instance
-    public static LevelLoader Instance { get; private set; }
-
-    [field: SerializeField] public PlayerInfo Player {get; private set; }
-
     [field: SerializeField] private string LevelSelectSceneName = "level_select";
 
     public LevelInfo CurrentLevel {get; private set; }
 
     private int currentStageIndex;
 
-    private void Awake()
-    {
-        // keep alive across scenes
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); 
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        CurrentLevel = null;
-        currentStageIndex = 0;
-    }
 
     // load level in a coroutine
     public void LoadLevel(LevelInfo level)
@@ -39,8 +18,16 @@ public class LevelLoader : MonoBehaviour
         CurrentLevel = level;
         // also need to set things like player's initial num particles, etc
         currentStageIndex = 0;
-        Player.SetNumParticles(level.InitialNumParticles);
+        PlayerInfo.Instance.SetNumParticles(level.InitialNumParticles);
         LoadScene(level.Stages[currentStageIndex]);
+    }
+
+    public void FailLevel()
+    {
+        // for now, just log msg and return to level select.
+        // eventually, add some kind of animation or screen display, then load
+        Debug.Log("Level " + CurrentLevel.Name + " FAILED");
+        LoadScene(LevelSelectSceneName);
     }
 
     public void LoadScene(string sceneName)
@@ -55,8 +42,8 @@ public class LevelLoader : MonoBehaviour
         {
             Debug.Log("level cleared!");
             // mark level as cleared in player info
-            Player.LevelCompleted(CurrentLevel.LevelIndex);
-            
+            PlayerInfo.Instance.LevelCompleted(CurrentLevel.LevelIndex);
+
             // for now, just return to level select.
             // eventually, want to hanlde things like player progresison, unlocking more levels,
             // displaying score, etc

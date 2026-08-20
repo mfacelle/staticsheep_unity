@@ -44,7 +44,7 @@ public class LevelLabelManager : MonoBehaviour
 
         if (woolAmountLabel != null)
         {
-            woolAmountLabel.text = "" + LevelLoader.Instance.Player.CurrentNumParticles;
+            woolAmountLabel.text = "" + PlayerInfo.Instance.CurrentNumParticles;
         }
         else
         {

@@ -17,8 +17,8 @@ public class ParticleLauncher : MonoBehaviour
     [SerializeField] private GameObject particlePrefab;
 
     // how many frames to pause between particle launches
-    [SerializeField] private int delayNumFrames = 30;
-    private int currentNumDelayFrames = 0;
+    [SerializeField] private float launchDelayTimeSec = 0.5f;
+    private float currentLaunchDelayTimeSec = 0.0f;
 
 
     private ChargedParticle CreateParticle()
@@ -59,7 +59,7 @@ public class ParticleLauncher : MonoBehaviour
     public void OnLaunch(InputAction.CallbackContext context)
     {
         // only allow particle launch if frame delay has been met
-        if (currentNumDelayFrames <= 0)
+        if (currentLaunchDelayTimeSec <= 0 && PlayerInfo.Instance.CurrentNumParticles > 0)
         {
             // do nothing if a UI element was pressed
             // TODO - need to figure out a real workaround for this.
@@ -92,19 +92,19 @@ public class ParticleLauncher : MonoBehaviour
             }
 
             // set delay for next particle launch
-            currentNumDelayFrames = delayNumFrames;
+            currentLaunchDelayTimeSec = launchDelayTimeSec;
 
             // decrement count of player particles
-            LevelLoader.Instance.Player.DecrementNumParticles();
+            PlayerInfo.Instance.DecrementNumParticles();
         }
     }
 
     void Update()
     {
-        if (currentNumDelayFrames > 0)
+        if (currentLaunchDelayTimeSec > 0)
         {
-            // decrement frame counter to delay particle launches
-            currentNumDelayFrames--;
+            // reduce by time elapsed since last frame
+            currentLaunchDelayTimeSec -= Time.deltaTime;
         }
     }
 

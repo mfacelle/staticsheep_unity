@@ -2,27 +2,41 @@ using UnityEngine;
 
 // container to hold information about the player that should persist
 // across scenes (levels, stages, etc)
-[CreateAssetMenu(fileName = "PlayerInfo", menuName = "Game/Player Info")]
-
-public class PlayerInfo : ScriptableObject
+public class PlayerInfo : Singleton<PlayerInfo>
 {
-    public int CurrentNumParticles {get; private set; } = 1;
+    #region Variables
+    public int CurrentNumParticles {get; private set;}
 
-    public int HighestCompleteLevelIdx {get; private set; } = -1;
+    public int HighestCompleteLevelIdx {get; private set;}
+
+    [field: SerializeField] private int StartingCompleteLevelIdx;
+
+    [SerializeField] private PlayerProperties playerProps;
+
+    #endregion
+
+    public override void Awake()
+    {
+        base.Awake();
+
+        CurrentNumParticles = 0;
+        HighestCompleteLevelIdx = StartingCompleteLevelIdx;
+    }
 
     public void DecrementNumParticles()
     {
-        CurrentNumParticles--;
+        SetNumParticles(CurrentNumParticles-1);
     }
 
     public void SetNumParticles(int numParticles)
     {
         CurrentNumParticles = numParticles;
+        playerProps.CurrentNumParticles = numParticles;
     }
 
     public void LevelCompleted(int levelIndex)
     {
-        Debug.Log("marking level " + levelIndex + " complete. current HighestCompleteLevelIdx=" + HighestCompleteLevelIdx);
+        Debug.Log("marking level " + levelIndex + " complete. current highestCompleteLevelIdx=" + HighestCompleteLevelIdx);
         if (levelIndex > HighestCompleteLevelIdx)
         {
             HighestCompleteLevelIdx = levelIndex;

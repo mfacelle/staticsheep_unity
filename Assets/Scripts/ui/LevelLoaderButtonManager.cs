@@ -10,6 +10,8 @@ public class LevelLoaderButtonManager : MonoBehaviour
 
     [SerializeField] private string[] buttonNames;
 
+
+
     private PanelRenderer panelRenderer;
     private int uiVersion = 0;
 
@@ -42,9 +44,8 @@ public class LevelLoaderButtonManager : MonoBehaviour
             Button button = root.Q<Button>(buttonNames[idx]);
             if (button != null) 
             {
-                Debug.Log("level button idx=" + idx + "; HighestCompleteLevelIdx=" + LevelLoader.Instance.Player.HighestCompleteLevelIdx);
                 // enable button if player has completed at least up to the level before this
-                if (LevelLoader.Instance.Player.HighestCompleteLevelIdx >= idx-1)
+                if (PlayerInfo.Instance.HighestCompleteLevelIdx >= idx-1)
                 {
                     // register callback with lambda, providing the level to load
                     // TODO consider providing LevelLoader as a variable, not a singleton?

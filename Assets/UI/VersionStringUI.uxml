@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1;">
+        <ui:Label text="Pre-Alpha v0.1" name="VersionLabel" parse-escape-sequences="false" style="-unity-font-definition: url(&quot;project://database/Assets/Thaleah_PixelFont/Materials/ThaleahFat_TTF.ttf?fileID=12800000&amp;guid=585188cdc4600544eb408bee749e4b3a&amp;type=3#ThaleahFat_TTF&quot;); -unity-text-outline-width: 0.5px; -unity-text-outline-color: rgb(125, 125, 125); -unity-text-auto-size: best-fit 10px 100px; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px; padding-left: 1px; right: 0; top: 0; position: absolute; width: 25%; height: 5%; -unity-text-align: middle-right;"/>
+    </ui:VisualElement>
+</ui:UXML>

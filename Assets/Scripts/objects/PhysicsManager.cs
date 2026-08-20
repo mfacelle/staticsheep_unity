@@ -29,6 +29,14 @@ public class PhysicsManager : MonoBehaviour
     // particles launched by the player.  Use HashSet for repeated random add/remove
 	private HashSet<ChargedParticle> chargedParticles = new HashSet<ChargedParticle>();
 
+	// fail the level if no particles exist on screen and the player can't launch anymore
+	void Update()
+	{
+        if (chargedParticles.Count == 0 && PlayerInfo.Instance.CurrentNumParticles <= 0)
+        {
+            LevelLoader.Instance.FailLevel();
+        }
+	}
 
 	// apply electromagnetic force to all particles
 	void FixedUpdate() 
