@@ -2,7 +2,7 @@ using UnityEngine;
 
 // container to hold information about the player that should persist
 // across scenes (levels, stages, etc)
-public class PlayerInfo : Singleton<PlayerInfo>
+public class PlayerInfo : MbSingleton<PlayerInfo>
 {
     #region Variables
     public int CurrentNumParticles {get; private set;}

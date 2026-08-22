@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755b0b3f5b58b4b678c608d2a445d577, type: 3}
   m_Name: PlayerProperties
   m_EditorClassIdentifier: Assembly-CSharp::PlayerProperties
-  CurrentNumParticles: 100
+  NumParticles: 94
+  viewVersion: 8

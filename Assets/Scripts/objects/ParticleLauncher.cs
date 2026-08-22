@@ -96,6 +96,8 @@ public class ParticleLauncher : MonoBehaviour
 
             // decrement count of player particles
             PlayerInfo.Instance.DecrementNumParticles();
+
+            Debug.Log("Launched particle. Remaining=" + PlayerInfo.Instance.CurrentNumParticles);
         }
     }
 

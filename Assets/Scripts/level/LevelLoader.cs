@@ -2,11 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : Singleton<LevelLoader>
+public class LevelLoader : MbSingleton<LevelLoader>
 {
     [field: SerializeField] private string LevelSelectSceneName = "level_select";
 
-    public LevelInfo CurrentLevel {get; private set; }
+    public LevelInfo CurrentLevel {get; private set;}
 
     private int currentStageIndex;
 

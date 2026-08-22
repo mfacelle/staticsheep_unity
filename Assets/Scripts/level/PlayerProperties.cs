@@ -9,25 +9,33 @@ using UnityEngine.UIElements;
 [CreateAssetMenu(fileName = "PlayerProperties", menuName="Game/PlayerProperties")]
 public class PlayerProperties : ScriptableObject, IDataSourceViewHashProvider, INotifyBindablePropertyChanged
 {
+    [SerializeField, DontCreateProperty] public int NumParticles;
+
     [SerializeField] private long viewVersion = 0;
     
     // just making this public for ease of use (for now - need to figure this stuff out)
-    [CreateProperty] public int CurrentNumParticles;
+    [CreateProperty] public int CurrentNumParticles
     {
-        get => CurrentNumParticles;
+        get => NumParticles;
         set
         {
             // prevent recursive loops when setting property
-            if (CurrentNumParticles == value)
+            if (NumParticles == value)
             {
                 return;
             }
 
-            CurrentNumParticles = value;
+            NumParticles = value;
+            // OnPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentNumParticles)));
             NotifyPropertyChanged();
-            
         }
     }
+
+    // ensure property has a value
+    // public void Awake()
+    // {
+    //     CurrentNumParticles = 100;
+    // }
 
 
     public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
