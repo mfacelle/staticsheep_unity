@@ -44,15 +44,15 @@ public class PauseManager : MonoBehaviour
         pauseAction.action.Disable();
     }
 
-    private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
+    private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
         Debug.Log("loading ui");
         // Prevent duplicate callback execution on live reloads
-        if (uiVersion == version) 
-        {
-            return;
-        }
-        uiVersion = version;
+        // if (uiVersion == version) 
+        // {
+        //     return;
+        // }
+        // uiVersion = version;
 
         Debug.Log("loading ui");
 

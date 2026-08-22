@@ -69,15 +69,15 @@ public class LevelToolbarManager : MonoBehaviour
         }
     }
 
-    private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
+    private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
         Debug.Log("loading toolbar");
         // Prevent duplicate callback execution on live reloads
-        if (uiVersion == version) 
-        {
-            return;
-        }
-        uiVersion = version;
+        // if (uiVersion == version) 
+        // {
+        //     return;
+        // }
+        // uiVersion = version;
 
         // query the buttons by the name used in UI builder
         for (int idx = 0; idx < buttonNames.Length; idx++)

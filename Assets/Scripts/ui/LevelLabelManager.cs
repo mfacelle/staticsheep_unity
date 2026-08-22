@@ -29,15 +29,15 @@ public class LevelLabelManager : MonoBehaviour
     // TODO this doesn't get called like Update, so it only refreshes on scene load...
     // need to use property bindings or something (and learn about them) to actually
     // have the wool count update in real time
-    private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
+    private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
         Debug.Log("loading labels");
         // Prevent duplicate callback execution on live reloads
-        if (uiVersion == version) 
-        {
-            return;
-        }
-        uiVersion = version;
+        // if (uiVersion == version) 
+        // {
+        //     return;
+        // }
+        // uiVersion = version;
 
         Label woolAmountLabel = root.Q<Label>(woolAmountLabelName);
         Label levelLabel = root.Q<Label>(levelLabelName);
