@@ -10,6 +10,15 @@ public class LevelLoader : MbSingleton<LevelLoader>
 
     private int currentStageIndex;
 
+    public override void Awake()
+    {
+        base.Awake();
+
+        // initialize to dummy level in case stages are loaded via editor manually
+        var tmpLevelGameObject = new GameObject("DebugLevelInfo");
+        tmpLevelGameObject.AddComponent<LevelInfo>();
+        CurrentLevel = tmpLevelGameObject.GetComponent<LevelInfo>();
+    }
 
     // load level in a coroutine
     public void LoadLevel(LevelInfo level)

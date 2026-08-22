@@ -19,7 +19,8 @@ public class PlayerInfo : MbSingleton<PlayerInfo>
     {
         base.Awake();
 
-        CurrentNumParticles = 0;
+        // set to default of 100, for when stage scenes are loaded via editor manually
+        CurrentNumParticles = 100;
         HighestCompleteLevelIdx = StartingCompleteLevelIdx;
     }
 

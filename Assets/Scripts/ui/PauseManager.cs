@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(PanelRenderer))]
 public class PauseManager : MonoBehaviour
 {    
     [SerializeField] private InputActionReference pauseAction;
@@ -32,6 +33,11 @@ public class PauseManager : MonoBehaviour
 
     private void OnDisable()
     {
+        if (panelRenderer != null)
+        {
+            panelRenderer.UnregisterUIReloadCallback(OnUIReload);
+        }
+
         // unsubscribe from events to prevent memory leaks
         pauseAction.action.started -= TogglePause;
 
@@ -40,6 +46,7 @@ public class PauseManager : MonoBehaviour
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
+        Debug.Log("loading ui");
         // Prevent duplicate callback execution on live reloads
         if (uiVersion == version) 
         {

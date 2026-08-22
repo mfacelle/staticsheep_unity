@@ -31,6 +31,7 @@ public class LevelLabelManager : MonoBehaviour
     // have the wool count update in real time
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
+        Debug.Log("loading labels");
         // Prevent duplicate callback execution on live reloads
         if (uiVersion == version) 
         {

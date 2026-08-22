@@ -5,14 +5,14 @@ using UnityEngine;
 public class LevelInfo : MonoBehaviour
 {
     // level name, mainly for debugging
-    [field: SerializeField] public string Name {get; private set; }
+    [field: SerializeField] public string Name {get; private set; } = "DEBUG";
 
-    [field: SerializeField] public int LevelIndex {get; private set; }
+    [field: SerializeField] public int LevelIndex {get; private set; } = 0;
 
     // number of particles the player will start this level with
     [field: SerializeField] public int InitialNumParticles {get; private set; } = 100;
 
     // list of stage names, to use when loading stages
-    [field: SerializeField] public string[] Stages {get; private set;}
+    [field: SerializeField] public string[] Stages {get; private set;} = { "Debug" };
 
 }

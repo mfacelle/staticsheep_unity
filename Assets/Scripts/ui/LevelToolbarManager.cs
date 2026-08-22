@@ -71,6 +71,7 @@ public class LevelToolbarManager : MonoBehaviour
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
+        Debug.Log("loading toolbar");
         // Prevent duplicate callback execution on live reloads
         if (uiVersion == version) 
         {
