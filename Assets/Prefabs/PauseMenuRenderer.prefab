@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8724402723799403701}
   - component: {fileID: 2887538695579745880}
   - component: {fileID: 8266912731327505810}
+  - component: {fileID: 4158541440811182813}
   m_Layer: 5
   m_Name: PauseMenuRenderer
   m_TagString: Untagged
@@ -104,5 +105,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
   pauseAction: {fileID: -3848479976580458826, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  pauseButtonName: PauseBtn
   pauseMenuName: PauseMenu
+  animatedElements: []
+--- !u!95 &4158541440811182813
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933448870875646031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10cad0502b0031541885fa1a77bdad04, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

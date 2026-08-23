@@ -15,8 +15,6 @@ public class PauseManager : MonoBehaviour
 
     private PanelRenderer panelRenderer;
 
-    private int uiVersion = 0;
-
     private VisualElement pauseMenu;
 
 
@@ -46,24 +44,13 @@ public class PauseManager : MonoBehaviour
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
-        Debug.Log("loading ui");
-        // Prevent duplicate callback execution on live reloads
-        // if (uiVersion == version) 
-        // {
-        //     return;
-        // }
-        // uiVersion = version;
-
-        Debug.Log("loading ui");
-
-        // Button pauseButton = root.Q<Button>(pauseButtonName);
-        // if (pauseButton != null) 
-        // {
-        //     Debug.Log("clicked pause button");
-        //     pauseButton.clicked += () => TogglePause();
-        // }
-
         pauseMenu = root.Q<VisualElement>(pauseMenuName);
+
+        // TODO animations might still be running even when panel isn't display.
+        // may want to look into better way to disable pause menu?
+
+        // TODO implement return to level select / main menu buttons
+
         // default to off
         Resume();
     }
