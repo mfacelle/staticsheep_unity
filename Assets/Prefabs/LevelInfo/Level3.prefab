@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2354922443169481546}
   - component: {fileID: 6572627927782670165}
   m_Layer: 0
-  m_Name: Level2
+  m_Name: Level3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,17 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187bee6a8d80f431fb793bd856af68a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelInfo
-  <Name>k__BackingField: level2
-  <LevelIndex>k__BackingField: 1
+  <Name>k__BackingField: level3
+  <LevelIndex>k__BackingField: 2
   <InitialNumParticles>k__BackingField: 100
   <Stages>k__BackingField:
-  - level2_stage1
-  - level2_stage2
-  - level2_stage3
-  - level2_stage4
-  - level2_stage5
-  - level2_stage6
-  - level2_stage7
-  - level2_stage8
-  - level2_stage9
-  - level2_stage10
+  - level3_stage1

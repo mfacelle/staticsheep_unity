@@ -337,10 +337,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.36528498
+    x: 0.33084577
     y: 0
-    width: 1.1076568
-    height: 1.108295
+    width: 1.1033721
+    height: 1.1039823
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 4
+  m_ComponentVersion: 3
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_Light2DProvider:
@@ -16032,11 +16032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607327566165418364, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.18795
+      value: 1.37545
       objectReference: {fileID: 0}
     - target: {fileID: 8607327566165418364, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.74952
+      value: -2.1245198
       objectReference: {fileID: 0}
     - target: {fileID: 8607327566165418364, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
       propertyPath: m_LocalPosition.z
