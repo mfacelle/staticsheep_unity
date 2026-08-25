@@ -22,7 +22,6 @@ public class LevelToolbarManager : MonoBehaviour
     [SerializeField] private ParticleLauncher particleLauncher;
 
     private PanelRenderer panelRenderer;
-    private int uiVersion = 0;
 
     // ensure hotkeys, buttons, and prefabs have same sized arrays
     private void OnValidate()
@@ -71,14 +70,6 @@ public class LevelToolbarManager : MonoBehaviour
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
-        Debug.Log("loading toolbar");
-        // Prevent duplicate callback execution on live reloads
-        // if (uiVersion == version) 
-        // {
-        //     return;
-        // }
-        // uiVersion = version;
-
         // query the buttons by the name used in UI builder
         for (int idx = 0; idx < buttonNames.Length; idx++)
         {

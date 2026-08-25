@@ -13,7 +13,6 @@ public class LevelLoaderButtonManager : MonoBehaviour
 
 
     private PanelRenderer panelRenderer;
-    private int uiVersion = 0;
 
     void OnEnable()
     {
@@ -31,14 +30,6 @@ public class LevelLoaderButtonManager : MonoBehaviour
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
-        // Prevent duplicate callback execution on live reloads
-        // removed in 6.6?
-        // if (uiVersion == version) 
-        // {
-        //     return;
-        // }
-        // uiVersion = version;
-
         // query the buttons by the name used in UI builder
         for (int idx = 0; idx < buttonNames.Length; idx++)
         {
