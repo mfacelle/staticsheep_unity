@@ -5,7 +5,13 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(PanelRenderer))]
 public class PauseManager : MonoBehaviour
 {    
+    #region Variables
+
     [SerializeField] private InputActionReference pauseAction;
+
+    [SerializeField] private string returnMainMenuBtnName = "ReturnMainMenuBtn";
+
+    [SerializeField] private string returnLevelSelectBtnName = "ReturnLevelSelectBtn";
 
     // [SerializeField] private string pauseButtonName = "PauseBtn";
 
@@ -17,6 +23,7 @@ public class PauseManager : MonoBehaviour
 
     private VisualElement pauseMenu;
 
+    #endregion
 
     private void OnEnable()
     {
@@ -49,15 +56,21 @@ public class PauseManager : MonoBehaviour
         // TODO animations might still be running even when panel isn't display.
         // may want to look into better way to disable pause menu?
 
-        // TODO implement return to level select / main menu buttons
+        // TODO no main menu yet, so this just returns to level select
+        Button returnMainMenuBtn = root.Q<Button>(returnMainMenuBtnName);
+        returnMainMenuBtn.clicked += () => LevelLoader.Instance.ReturnToLevelSelect();
 
-        // default to off
+        Button returnLevelSelectBtn = root.Q<Button>(returnLevelSelectBtnName);
+        returnLevelSelectBtn.clicked += () => LevelLoader.Instance.ReturnToLevelSelect();
+
+        // default to unpaused
         Resume();
     }
 
     // input action callback requires context arg
     public void TogglePause(InputAction.CallbackContext context)
     {
+        // TODO need to disable this hotkey when stage/level clear/failure ui is present
         TogglePause();
     }
     
@@ -76,7 +89,8 @@ public class PauseManager : MonoBehaviour
     public void Resume()
     {
         Debug.Log("Resuming from pause");
-        pauseMenu.visible = false;
+        // pauseMenu.visible = false;
+        pauseMenu.style.display = DisplayStyle.None;
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -84,7 +98,8 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         Debug.Log("Pausing level");
-        pauseMenu.visible = true;
+        // pauseMenu.visible = true;
+        pauseMenu.style.display = DisplayStyle.Flex;
         Time.timeScale = 0f;
         isPaused = true;
     }

@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoalSheep
       objectReference: {fileID: 0}
+    - target: {fileID: 6878717843530989131, guid: 7c830462ce5dd4377a42aa66903a0e18, type: 3}
+      propertyPath: stageClearManager
+      value: 
+      objectReference: {fileID: 2040486442}
     - target: {fileID: 8607327566165418364, guid: 7c830462ce5dd4377a42aa66903a0e18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.83
@@ -280,10 +284,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.36528498
+    x: 0.17916667
     y: 0
-    width: 1.1076568
-    height: 1.108295
+    width: 0.7814815
+    height: 0.78148144
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -372,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 4
+  m_ComponentVersion: 3
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_Light2DProvider:
@@ -17053,6 +17057,74 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7633204410240011454, guid: 3daf7161171c444a6b5d857290dcd9a7, type: 3}
   m_PrefabInstance: {fileID: 5359641732908237920}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2040486441
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.13171
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.82212
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166826453692796672, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_Name
+      value: StageClearManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+--- !u!114 &2040486442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2748786259237816239, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+  m_PrefabInstance: {fileID: 2040486441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8aa329b5fb924352a89e2b13a9e1382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageClearManager
 --- !u!114 &2063932662 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2052051896884814492, guid: 52138d33becb54ad592488e27f9362ad, type: 3}
@@ -17190,6 +17262,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2052051896884814492, guid: 52138d33becb54ad592488e27f9362ad, type: 3}
+      propertyPath: stageClearManager
+      value: 
+      objectReference: {fileID: 2040486442}
     - target: {fileID: 2052051896884814492, guid: 52138d33becb54ad592488e27f9362ad, type: 3}
       propertyPath: chargedObjects.Array.size
       value: 3
@@ -17525,3 +17601,4 @@ SceneRoots:
   - {fileID: 8731007562711177894}
   - {fileID: 2119565621}
   - {fileID: 1896136546}
+  - {fileID: 2040486441}

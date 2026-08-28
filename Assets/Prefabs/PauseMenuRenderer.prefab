@@ -105,8 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
   pauseAction: {fileID: -3848479976580458826, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  returnMainMenuBtnName: ReturnMainMenuBtn
+  returnLevelSelectBtnName: ReturnLevelSelectBtn
   pauseMenuName: PauseMenu
-  animatedElements: []
 --- !u!95 &4158541440811182813
 Animator:
   serializedVersion: 7

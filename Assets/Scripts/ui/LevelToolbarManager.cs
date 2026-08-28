@@ -46,7 +46,7 @@ public class LevelToolbarManager : MonoBehaviour
         // set up hotkey callbacks
         for (int idx = 0; idx < hotkeyActions.Length; idx++)
         {
-            Debug.Log("setting callback for idx " + idx + ", hotkey: " + hotkeyActions[idx]);
+            // Debug.Log("setting callback for idx " + idx + ", hotkey: " + hotkeyActions[idx]);
             int prefabIdx = idx;
             hotkeyActions[idx].action.performed += ctx => SetParticlePrefab(prefabIdx);
         }
@@ -62,7 +62,7 @@ public class LevelToolbarManager : MonoBehaviour
         // disable hotkey callbacks
         for (int idx = 0; idx < hotkeyActions.Length; idx++)
         {
-            Debug.Log("setting callback for idx " + idx + ", hotkey: " + hotkeyActions[idx]);
+            // Debug.Log("setting callback for idx " + idx + ", hotkey: " + hotkeyActions[idx]);
             int prefabIdx = idx;
             hotkeyActions[idx].action.performed -= ctx => SetParticlePrefab(prefabIdx);
         }
@@ -71,6 +71,7 @@ public class LevelToolbarManager : MonoBehaviour
     private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
         // query the buttons by the name used in UI builder
+        // TODO consider making these just a display, not real buttons
         for (int idx = 0; idx < buttonNames.Length; idx++)
         {
             Button button = root.Q<Button>(buttonNames[idx]);
@@ -78,7 +79,7 @@ public class LevelToolbarManager : MonoBehaviour
             {
                 // register callback with lambda, providing the level to load
                 // TODO consider providing LevelLoader as a variable, not a singleton?
-                Debug.Log("setting button callback for idx " + idx + ", button: " + buttonNames[idx]);
+                // Debug.Log("setting button callback for idx " + idx + ", button: " + buttonNames[idx]);
                 int prefabIdx = idx;
                 button.clicked += () => SetParticlePrefab(prefabIdx);
             }

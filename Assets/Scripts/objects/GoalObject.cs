@@ -5,6 +5,8 @@ public class GoalObject : MonoBehaviour
 
 	private Rigidbody2D body;
 
+    [SerializeField] private StageClearManager stageClearManager;
+
     // need some kind of level manager reference
 
 	void Awake() 
@@ -20,9 +22,9 @@ public class GoalObject : MonoBehaviour
             // (or "sheep restored" or something)
             Debug.Log("win!");
 
-            // should instead pass in some kind of sequential stage manager or callback or something,
-            // rather than reference as a singleton.  Works for now, though
-            LevelLoader.Instance.LoadNextStage();
+            // TODO what about subsequent collisions between the win screen showing up and actually loading
+            // the next scene? maybe just need a simple bool for this
+            stageClearManager.LoadNextStage();
         }
 	}
 }

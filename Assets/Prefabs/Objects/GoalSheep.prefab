@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8607327566165418364}
   - component: {fileID: 7501314731699451055}
   - component: {fileID: 6878717843530989131}
+  - component: {fileID: 4574983466695897819}
   - component: {fileID: 5878363215471623938}
   - component: {fileID: 8899375475581717653}
   - component: {fileID: 4364245564225712385}
@@ -62,6 +63,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b9355989cad404ca5ab98a37ab822c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalObject
+  stageClearManager: {fileID: 0}
+--- !u!114 &4574983466695897819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646020174093939257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9c941cff9bc4ccca90ef4b8ae7a3d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SheepAnimationController
 --- !u!212 &5878363215471623938
 SpriteRenderer:
   serializedVersion: 3
@@ -88,7 +102,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ea9c9e3a36671411b9795a54999ae392, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,7 +152,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -168,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 4646020174093939257}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bccd50989651c4074af607f97a4c483f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3969da0e307844fae8461907a85db3af, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

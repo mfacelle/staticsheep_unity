@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoalSheep
       objectReference: {fileID: 0}
+    - target: {fileID: 6878717843530989131, guid: 7c830462ce5dd4377a42aa66903a0e18, type: 3}
+      propertyPath: stageClearManager
+      value: 
+      objectReference: {fileID: 671134223}
     - target: {fileID: 8607327566165418364, guid: 7c830462ce5dd4377a42aa66903a0e18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.54
@@ -337,10 +341,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.33084577
+    x: 0.17916667
     y: 0
-    width: 1.1033721
-    height: 1.1039823
+    width: 0.7814815
+    height: 0.78148144
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -516,6 +520,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca89dc07bfb04ec89164c211e182755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParticleLauncher
+--- !u!1001 &671134222
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.13171
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.82212
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849449661735287471, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166826453692796672, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+      propertyPath: m_Name
+      value: StageClearManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+--- !u!114 &671134223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2748786259237816239, guid: d1918d7298f86431a8f2d88e73ddb6c0, type: 3}
+  m_PrefabInstance: {fileID: 671134222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8aa329b5fb924352a89e2b13a9e1382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageClearManager
 --- !u!1 &965203960
 GameObject:
   m_ObjectHideFlags: 0
@@ -16012,7 +16084,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7501314731699451055, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
   m_PrefabInstance: {fileID: 1252077750}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1252077752}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f2c975328f4b4e9c94324b890a15863, type: 3}
@@ -16073,13 +16145,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4646020174093939257, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1252077753}
   m_SourcePrefab: {fileID: 100100000, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
 --- !u!4 &1252077751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8607327566165418364, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
   m_PrefabInstance: {fileID: 1252077750}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1252077752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4646020174093939257, guid: f4cb3cfffe5d302429bd827bfc237aff, type: 3}
+  m_PrefabInstance: {fileID: 1252077750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1252077753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252077752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9c941cff9bc4ccca90ef4b8ae7a3d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SheepAnimationController
 --- !u!114 &1391714315 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7501314731699451055, guid: 7c830462ce5dd4377a42aa66903a0e18, type: 3}
@@ -16486,6 +16578,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2052051896884814492, guid: 52138d33becb54ad592488e27f9362ad, type: 3}
+      propertyPath: stageClearManager
+      value: 
+      objectReference: {fileID: 671134223}
+    - target: {fileID: 2052051896884814492, guid: 52138d33becb54ad592488e27f9362ad, type: 3}
       propertyPath: chargedObjects.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -16816,3 +16912,4 @@ SceneRoots:
   - {fileID: 8731007562711177894}
   - {fileID: 299679466}
   - {fileID: 1892047190}
+  - {fileID: 671134222}

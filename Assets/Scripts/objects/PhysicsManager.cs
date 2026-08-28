@@ -22,6 +22,8 @@ public class PhysicsManager : MonoBehaviour
 	// eventually, want the ability to hit stuff in the scene and create new ChargedObject instances
 	[SerializeField] private ChargedObject[] chargedObjects;
 
+	[SerializeField] private StageClearManager stageClearManager;
+
 	// non-charged objects in the scene
 	// TODO - may not need this here... just do colision detection
 	// public Obstacle[] obstacles;
@@ -34,7 +36,7 @@ public class PhysicsManager : MonoBehaviour
 	{
         if (chargedParticles.Count == 0 && PlayerInfo.Instance.CurrentNumParticles <= 0)
         {
-            LevelLoader.Instance.FailLevel();
+            stageClearManager.FailLevel();
         }
 	}
 

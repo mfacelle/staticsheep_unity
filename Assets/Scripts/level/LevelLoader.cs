@@ -31,10 +31,12 @@ public class LevelLoader : MbSingleton<LevelLoader>
         LoadScene(level.Stages[currentStageIndex]);
     }
 
-    public void FailLevel()
+    public void ReturnToLevelSelect()
     {
         // for now, just log msg and return to level select.
-        // eventually, add some kind of animation or screen display, then load
+        // TODO - display UI that prints fail message and has two buttons:
+        // - retry
+        // - return to level select screen (call it world map?)
         Debug.Log("Level " + CurrentLevel.Name + " FAILED");
         LoadScene(LevelSelectSceneName);
     }
@@ -62,6 +64,11 @@ public class LevelLoader : MbSingleton<LevelLoader>
         {
             LoadScene(CurrentLevel.Stages[currentStageIndex]);
         }
+    }
+
+    public bool IsLastStage()
+    {
+        return currentStageIndex == CurrentLevel.Stages.Length - 1;
     }
 
     // asynchronously load a scene (in a coroutine), only displaying when complete
