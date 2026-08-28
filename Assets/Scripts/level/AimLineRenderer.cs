@@ -17,26 +17,29 @@ public class AimLineRenderer : MonoBehaviour
 
     void Update()
     {
-        Vector3 startPos = playerTransform.position;
+        if (GameStateManager.Instance.CurrentState == GameStateManager.GameState.Running)
+        {
+            Vector3 startPos = playerTransform.position;
 
-        Vector2 screenMousePos = Mouse.current.position.ReadValue();
-        Vector3 endPos = Camera.main.ScreenToWorldPoint(new Vector3(screenMousePos.x, screenMousePos.y, Camera.main.nearClipPlane));        
+            Vector2 screenMousePos = Mouse.current.position.ReadValue();
+            Vector3 endPos = Camera.main.ScreenToWorldPoint(new Vector3(screenMousePos.x, screenMousePos.y, Camera.main.nearClipPlane));        
 
-        endPos.z = 0f;
+            endPos.z = 0f;
 
-        startPos = SnapToPixelGrid(startPos);
-        endPos = SnapToPixelGrid(endPos);
+            startPos = SnapToPixelGrid(startPos);
+            endPos = SnapToPixelGrid(endPos);
 
-        lineRenderer.SetPosition(0, startPos);
-        lineRenderer.SetPosition(1, endPos);
+            lineRenderer.SetPosition(0, startPos);
+            lineRenderer.SetPosition(1, endPos);
 
-        // note: even setting width to 1px doesn't quite render the way I was expecting.
-        // good enough for now, but need a more robust, pixel-perfect solution eventually
-        lineRenderer.startWidth = 1.0f / pixelsPerUnit;
-        lineRenderer.endWidth = 1.0f / pixelsPerUnit;
+            // note: even setting width to 1px doesn't quite render the way I was expecting.
+            // good enough for now, but need a more robust, pixel-perfect solution eventually
+            lineRenderer.startWidth = 1.0f / pixelsPerUnit;
+            lineRenderer.endWidth = 1.0f / pixelsPerUnit;
 
-        lineRenderer.startColor = new Color(0.0f, 1.0f, 0.0f, 0.25f);
-        lineRenderer.endColor = new Color(0.0f, 1.0f, 0.0f, 0.0f);
+            lineRenderer.startColor = new Color(0.0f, 1.0f, 0.0f, 0.25f);
+            lineRenderer.endColor = new Color(0.0f, 1.0f, 0.0f, 0.0f);
+        }
     }
 
     Vector3 SnapToPixelGrid(Vector3 worldPos)

@@ -52,7 +52,8 @@ public class StageClearManager : MonoBehaviour
         levelClearMenu = root.Q<VisualElement>(levelClearMenuName);
         levelFailMenu = root.Q<VisualElement>(levelFailMenuName);
 
-        // initially, none of these panels are displayed
+        // don't display these panels when UI reloaded
+        // TODO could this cause a panel to disappear later though?
         stageClearMenu.style.display = DisplayStyle.None;
         levelClearMenu.style.display = DisplayStyle.None;
         levelFailMenu.style.display = DisplayStyle.None;
@@ -85,6 +86,9 @@ public class StageClearManager : MonoBehaviour
 
     private IEnumerator WaitAndLoadNextStage(float waitTimeAmountSec)
     {
+        
+        GameStateManager.Instance.SetGameState(GameStateManager.GameState.StageEnd);
+
         yield return new WaitForSeconds(waitTimeAmountSec);
 
         LevelLoader.Instance.LoadNextStage();

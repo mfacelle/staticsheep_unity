@@ -55,17 +55,25 @@ public class PlayerMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Calculate what our target velocity should be based on current input
-        Vector2 targetVelocity = moveInput * moveSpeed;
+        if (GameStateManager.Instance.CurrentState == GameStateManager.GameState.Running)
+        {
+            // Calculate what our target velocity should be based on current input
+            Vector2 targetVelocity = moveInput * moveSpeed;
 
-        // Determine if we are accelerating (input detected) or decelerating (no input)
-        float currentSpeedChange = (moveInput.magnitude > 0) ? acceleration : deceleration;
+            // Determine if we are accelerating (input detected) or decelerating (no input)
+            float currentSpeedChange = (moveInput.magnitude > 0) ? acceleration : deceleration;
 
-        // Smoothly transition current velocity towards target velocity based on rate of change
-        float newVelocityX = Mathf.MoveTowards(rb.linearVelocity.x, targetVelocity.x, currentSpeedChange * Time.fixedDeltaTime);
-        float newVelocityY = Mathf.MoveTowards(rb.linearVelocity.y, targetVelocity.y, currentSpeedChange * Time.fixedDeltaTime);
-        
-        // Apply the calculated velocity directly to the Rigidbody2D
-        rb.linearVelocity = new Vector2(newVelocityX, newVelocityY);
+            // Smoothly transition current velocity towards target velocity based on rate of change
+            float newVelocityX = Mathf.MoveTowards(rb.linearVelocity.x, targetVelocity.x, currentSpeedChange * Time.fixedDeltaTime);
+            float newVelocityY = Mathf.MoveTowards(rb.linearVelocity.y, targetVelocity.y, currentSpeedChange * Time.fixedDeltaTime);
+            
+            // Apply the calculated velocity directly to the Rigidbody2D
+            rb.linearVelocity = new Vector2(newVelocityX, newVelocityY);
+        }
+        else
+        {
+            // don't let player move
+            rb.linearVelocity = new Vector2(0.0f, 0.0f);
+        }
     }
 }

@@ -58,11 +58,10 @@ public class ParticleLauncher : MonoBehaviour
 
     public void OnLaunch(InputAction.CallbackContext context)
     {
-        // TODO particle being launched during pause, but not actually launched in game until resume
-        // need to also check for timescale or something?
-
-        // only allow particle launch if frame delay has been met
-        if (currentLaunchDelayTimeSec <= 0 && PlayerInfo.Instance.CurrentNumParticles > 0)
+        // only allow particle launch if frame delay has been met and actively running
+        if (GameStateManager.Instance.CurrentState == GameStateManager.GameState.Running && 
+            currentLaunchDelayTimeSec <= 0 && 
+            PlayerInfo.Instance.CurrentNumParticles > 0)
         {
             // do nothing if a UI element was pressed
             // TODO - need to figure out a real workaround for this.

@@ -28,7 +28,7 @@ public class LevelLoader : MbSingleton<LevelLoader>
         // also need to set things like player's initial num particles, etc
         currentStageIndex = 0;
         PlayerInfo.Instance.SetNumParticles(level.InitialNumParticles);
-        LoadScene(level.Stages[currentStageIndex]);
+        LoadScene(level.Stages[currentStageIndex], GameStateManager.GameState.Running);
     }
 
     public void ReturnToLevelSelect()
@@ -38,14 +38,15 @@ public class LevelLoader : MbSingleton<LevelLoader>
         // - retry
         // - return to level select screen (call it world map?)
         Debug.Log("Level " + CurrentLevel.Name + " FAILED");
-        LoadScene(LevelSelectSceneName);
+        LoadScene(LevelSelectSceneName, GameStateManager.GameState.LevelSelect);
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string sceneName, GameStateManager.GameState stateOnLoad)
     {
-        StartCoroutine(LoadAsynchronously(sceneName));
+        StartCoroutine(LoadAsynchronously(sceneName, stateOnLoad));
     }
 
+    // load next stage, or return to level select if all stages completed
     public void LoadNextStage()
     {
         currentStageIndex++;
@@ -55,14 +56,15 @@ public class LevelLoader : MbSingleton<LevelLoader>
             // mark level as cleared in player info
             PlayerInfo.Instance.LevelCompleted(CurrentLevel.LevelIndex);
 
-            // for now, just return to level select.
-            // eventually, want to hanlde things like player progresison, unlocking more levels,
-            // displaying score, etc
-            LoadScene(LevelSelectSceneName);
+            // TODO this is kind of awkardly handled across StageClearManager and this class...
+            // may need to fix later
+
+            ReturnToLevelSelect();
         }
         else
         {
-            LoadScene(CurrentLevel.Stages[currentStageIndex]);
+            LoadScene(CurrentLevel.Stages[currentStageIndex], 
+                GameStateManager.GameState.Running);
         }
     }
 
@@ -72,7 +74,7 @@ public class LevelLoader : MbSingleton<LevelLoader>
     }
 
     // asynchronously load a scene (in a coroutine), only displaying when complete
-    private IEnumerator LoadAsynchronously(string sceneName)
+    private IEnumerator LoadAsynchronously(string sceneName, GameStateManager.GameState stateOnLoad)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
@@ -91,6 +93,12 @@ public class LevelLoader : MbSingleton<LevelLoader>
             {
                 // display scene
                 operation.allowSceneActivation = true; 
+                
+                // set state to running to allow actions when scene loaded
+                // TODO but, for level select or main menu, we want to set a different game state
+                GameStateManager.Instance.SetGameState(stateOnLoad);
+                
+                Debug.Log("loaded scene. State=" + GameStateManager.Instance.CurrentState);
             }
 
             yield return null;

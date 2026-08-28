@@ -17,8 +17,6 @@ public class PauseManager : MonoBehaviour
 
     [SerializeField] private string pauseMenuName = "PauseMenu";
 
-    private bool isPaused = false;
-
     private PanelRenderer panelRenderer;
 
     private VisualElement pauseMenu;
@@ -55,6 +53,7 @@ public class PauseManager : MonoBehaviour
 
         // TODO animations might still be running even when panel isn't display.
         // may want to look into better way to disable pause menu?
+        // ...maybe just don't use animations for showing the controls? kinda overkill and inflexible
 
         // TODO no main menu yet, so this just returns to level select
         Button returnMainMenuBtn = root.Q<Button>(returnMainMenuBtnName);
@@ -62,25 +61,17 @@ public class PauseManager : MonoBehaviour
 
         Button returnLevelSelectBtn = root.Q<Button>(returnLevelSelectBtnName);
         returnLevelSelectBtn.clicked += () => LevelLoader.Instance.ReturnToLevelSelect();
-
-        // default to unpaused
-        Resume();
     }
 
-    // input action callback requires context arg
+    // input action callback requires context arg; unused here
     public void TogglePause(InputAction.CallbackContext context)
     {
-        // TODO need to disable this hotkey when stage/level clear/failure ui is present
-        TogglePause();
-    }
-    
-    public void TogglePause()
-    {
-        if (isPaused)
+        // only allow pausing the game under certain game states
+        if (GameStateManager.Instance.CurrentState == GameStateManager.GameState.Paused)
         {
             Resume();
         }
-        else
+        else if (GameStateManager.Instance.CurrentState == GameStateManager.GameState.Running)
         {
             Pause();
         }
@@ -89,18 +80,16 @@ public class PauseManager : MonoBehaviour
     public void Resume()
     {
         Debug.Log("Resuming from pause");
-        // pauseMenu.visible = false;
         pauseMenu.style.display = DisplayStyle.None;
         Time.timeScale = 1f;
-        isPaused = false;
+        GameStateManager.Instance.SetGameState(GameStateManager.GameState.Running);
     }
 
     public void Pause()
     {
         Debug.Log("Pausing level");
-        // pauseMenu.visible = true;
         pauseMenu.style.display = DisplayStyle.Flex;
         Time.timeScale = 0f;
-        isPaused = true;
+        GameStateManager.Instance.SetGameState(GameStateManager.GameState.Paused);
     }
 }
