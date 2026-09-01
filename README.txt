@@ -1,7 +1,9 @@
 Unity project for the "static sheep" game.
 
+Static Sheep is a casual "hit the target" puzzle game that utilizes electrostatic forces to curve particles launched around obstacles and towards the target.
+
 Was originally developed in Go to learn the language, but changed to Unity to make a "real" game more easily.
 
-Initial assets from https://cupnooble.itch.io/sprout-lands-asset-pack and other various sources, but I plan to replace these and make my own in the future.  
-Only using existing assets to quickly get something that works, without having to make a bunch of stuff up front.
+Currently working on creating all assets myself.
 
+Will start adding proper feature branches and versioning once I hit a decent minimum viable product.

@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: WaterTile
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
   m_AnimatedSprites:
-  - {fileID: -7327818076814472044, guid: 37668f648f33d40aab50f157c8390253, type: 3}
-  - {fileID: -67542820, guid: 37668f648f33d40aab50f157c8390253, type: 3}
-  - {fileID: -2114151808, guid: 37668f648f33d40aab50f157c8390253, type: 3}
-  - {fileID: 526456688, guid: 37668f648f33d40aab50f157c8390253, type: 3}
+  - {fileID: 21300000, guid: 97b3586ce560d4a13825cf770a542324, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0

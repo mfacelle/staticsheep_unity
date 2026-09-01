@@ -1,0 +1,15 @@
+.unity-button {
+    background-image: url("project://database/Assets/Sprites/UiElements.png#Button");
+    transition: scale 0.25s;
+}
+
+.unity-button:active,
+.unity-button:active:enabled,
+.unity-button:hover:active {
+    background-image: url("project://database/Assets/Sprites/UiElements.png#ButtonPressed");
+    /* transition: background-image 0.25s; */
+}
+
+.unity-button:hover:enabled {
+    scale: 1.1 1.1;
+}
