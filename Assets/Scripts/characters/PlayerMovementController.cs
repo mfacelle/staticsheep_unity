@@ -9,6 +9,9 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float deceleration = 40.0f;
     [SerializeField] private InputActionReference moveAction;
 
+    // direction the player is currently facing, as a normalized vector
+    public Vector2 MoveDirection { get; private set; } = Vector2.zero;
+
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -69,6 +72,8 @@ public class PlayerMovementController : MonoBehaviour
             
             // Apply the calculated velocity directly to the Rigidbody2D
             rb.linearVelocity = new Vector2(newVelocityX, newVelocityY);
+
+            MoveDirection = rb.linearVelocity;//.normalized;
         }
         else
         {

@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 4197928110609441676}
   - component: {fileID: 2036986461986624431}
   - component: {fileID: 8860657849115775182}
+  - component: {fileID: 3007532877016533067}
   - component: {fileID: 2620270459480267229}
   - component: {fileID: 1916376598408682955}
+  - component: {fileID: 4112550660165060358}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -84,7 +86,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1256835194, guid: 7f2e9926ee6f242e5921666f72bd3123, type: 3}
+  m_Sprite: {fileID: 3427114271967980436, guid: 7f2e9926ee6f242e5921666f72bd3123, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,6 +113,18 @@ MonoBehaviour:
   acceleration: 20
   deceleration: 40
   moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+--- !u!114 &3007532877016533067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633204410240011454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2785e3516e8554df18e7514321719c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
 --- !u!50 &2620270459480267229
 Rigidbody2D:
   serializedVersion: 5
@@ -184,3 +198,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.75, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &4112550660165060358
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633204410240011454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee1e204daa8eb4568b07ebe85b0a193d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
