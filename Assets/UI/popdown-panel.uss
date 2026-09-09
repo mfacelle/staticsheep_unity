@@ -1,0 +1,9 @@
+.popdown-panel-offscreen {
+    translate: 0 -300%;
+    transition: translate 0.5s ease-in-out;
+}
+
+.popdown-panel-onscreen {
+    translate: none;
+    transition: translate 0.5s ease-in-out;
+}

@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8aa329b5fb924352a89e2b13a9e1382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageClearManager
+  retryButtonName: RetryBtn
+  returnButtonName: ReturnBtn
   stageClearMenuName: StageClearPanel
   levelClearMenuName: LevelClearPanel
   levelFailMenuName: LevelFailPanel
-  stageClearTimeSec: 1
-  levelClearTimeSec: 2
+  stageClearTimeSec: 2
+  levelClearTimeSec: 3

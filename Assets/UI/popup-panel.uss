@@ -1,0 +1,10 @@
+/* default class to allow transitions back to normal state */
+.popup-panel-offscreen {
+    translate: 0 300%;
+    transition: translate 0.3s ease-in-bounce;
+}
+
+.popup-panel-onscreen {
+    translate: none;
+    transition: translate 0.3s ease-in-bounce;
+}

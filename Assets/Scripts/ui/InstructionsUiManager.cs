@@ -27,13 +27,18 @@ public class InstructionsUiManager : MonoBehaviour
         Button startButton = root.Q<Button>(startButtonName);
         startButton.clicked += () => StartLevel();
         
+        instructionsPanelRoot.RemoveFromClassList("popdown-panel-offscreen");
+        instructionsPanelRoot.AddToClassList("popdown-panel-onscreen");
+
         // set to intro state here to ensure state is set when UI displayed
         GameStateManager.Instance.SetGameState(GameStateManager.GameState.Intro);
     }
 
     private void StartLevel()
     {
-        instructionsPanelRoot.style.display = DisplayStyle.None;
+        // instructionsPanelRoot.style.display = DisplayStyle.None;
+        instructionsPanelRoot.RemoveFromClassList("popdown-panel-onscreen");
+        instructionsPanelRoot.AddToClassList("popdown-panel-offscreen");
         GameStateManager.Instance.SetGameState(GameStateManager.GameState.Running);
     }
 

@@ -15,10 +15,10 @@ public class StageClearManager : MonoBehaviour
     [SerializeField] private string levelFailMenuName = "LevelFailPanel";
 
     // how long to display stage clear panel before loading next stage
-    [SerializeField] private float stageClearTimeSec = 1.0f;
+    [SerializeField] private float stageClearTimeSec = 2.0f;
 
     // how long to display level clear panel before loading next stage
-    [SerializeField] private float levelClearTimeSec = 2.0f;
+    [SerializeField] private float levelClearTimeSec = 3.0f;
 
 
     private PanelRenderer panelRenderer;
@@ -54,9 +54,9 @@ public class StageClearManager : MonoBehaviour
 
         // don't display these panels when UI reloaded
         // TODO could this cause a panel to disappear later though?
-        stageClearMenu.style.display = DisplayStyle.None;
-        levelClearMenu.style.display = DisplayStyle.None;
-        levelFailMenu.style.display = DisplayStyle.None;
+        // stageClearMenu.style.display = DisplayStyle.None;
+        // levelClearMenu.style.display = DisplayStyle.None;
+        // levelFailMenu.style.display = DisplayStyle.None;
 
         Button retryButton = root.Q<Button>(retryButtonName);
         retryButton.clicked += () => LevelLoader.Instance.LoadLevel(LevelLoader.Instance.CurrentLevel);
@@ -73,13 +73,17 @@ public class StageClearManager : MonoBehaviour
         if (LevelLoader.Instance.IsLastStage())
         {
             // display level clear menu and set timer for that
-            levelClearMenu.style.display = DisplayStyle.Flex;
+            // levelClearMenu.style.display = DisplayStyle.Flex;
+            levelClearMenu.RemoveFromClassList("popup-panel-offscreen");
+            levelClearMenu.AddToClassList("popup-panel-onscreen");
             StartCoroutine(WaitAndLoadNextStage(levelClearTimeSec));
         }
         else
         {
             // display stage clear menu and set timer for that
-            stageClearMenu.style.display = DisplayStyle.Flex;
+            // stageClearMenu.style.display = DisplayStyle.Flex;
+            stageClearMenu.RemoveFromClassList("popup-panel-offscreen");
+            stageClearMenu.AddToClassList("popup-panel-onscreen");
             StartCoroutine(WaitAndLoadNextStage(stageClearTimeSec));
         }
     }
@@ -98,7 +102,11 @@ public class StageClearManager : MonoBehaviour
     // TODO pretty sure the player can still move when this is up...
     public void FailLevel()
     {
-        levelFailMenu.style.display = DisplayStyle.Flex;
+        GameStateManager.Instance.SetGameState(GameStateManager.GameState.StageEnd);
+
+        // levelFailMenu.style.display = DisplayStyle.Flex;
+        levelFailMenu.RemoveFromClassList("popup-panel-offscreen");
+        levelFailMenu.AddToClassList("popup-panel-onscreen");
     }
 
 }

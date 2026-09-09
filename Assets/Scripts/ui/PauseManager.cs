@@ -80,7 +80,10 @@ public class PauseManager : MonoBehaviour
     public void Resume()
     {
         Debug.Log("Resuming from pause");
-        pauseMenu.style.display = DisplayStyle.None;
+        // pauseMenu.style.display = DisplayStyle.None;
+        // move pause menu to offscreen position
+        pauseMenu.RemoveFromClassList("popdown-panel-onscreen");
+        pauseMenu.AddToClassList("popdown-panel-offscreen");
         Time.timeScale = 1f;
         GameStateManager.Instance.SetGameState(GameStateManager.GameState.Running);
     }
@@ -88,7 +91,10 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         Debug.Log("Pausing level");
-        pauseMenu.style.display = DisplayStyle.Flex;
+        // pauseMenu.style.display = DisplayStyle.Flex;
+        // move pause menu to onscreen position
+        pauseMenu.RemoveFromClassList("popdown-panel-offscreen");
+        pauseMenu.AddToClassList("popdown-panel-onscreen");
         Time.timeScale = 0f;
         GameStateManager.Instance.SetGameState(GameStateManager.GameState.Paused);
     }

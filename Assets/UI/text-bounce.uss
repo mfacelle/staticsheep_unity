@@ -1,0 +1,23 @@
+/* default class to allow transitions back to normal state */
+.text-label {
+    scale: none;
+    translate: none;
+    /* TODO this will only work for "wool" colored text! */
+    color: rgb(189, 170, 151);
+    transition: scale 0.3s ease-in-out, translate 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.text-label-bounce {
+    scale: 1.25;
+    translate: 0 -10%;
+    /* TODO this will only work for "wool" colored text! */
+    color: rgb(189, 170, 151);
+    transition: scale 0.3s ease-in-out, translate 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.text-label-big-bounce {
+    scale: 1.75;
+    translate: 0 -50%;
+    color: #ff0000; /* TODO get red color from palette */
+    transition: scale 0.3s ease-in-out, translate 0.3s ease-in-out, color 0.3s ease-in-out;
+}

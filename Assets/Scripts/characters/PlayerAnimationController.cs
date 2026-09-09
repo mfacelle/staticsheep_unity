@@ -29,7 +29,7 @@ public class PlayerAnimationController : MonoBehaviour
 
             Vector2 lookDir = (mousePos - playerPos).normalized;
 
-            Debug.Log("moveDir: " + moveDir + ", lookDir: " + lookDir);
+            // Debug.Log("moveDir: " + moveDir + ", lookDir: " + lookDir);
             // if moving, set flag and move direction
             // TODO or do we always want to use look direction?
             if (moveDir != Vector2.zero)

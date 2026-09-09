@@ -152,4 +152,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelLabelManager
   woolAmountLabelName: WoolAmountLabel
   levelLabelName: LevelLabel
-  StageLabelName: StageLabel
+  stageLabelName: StageLabel
+  playerProperties: {fileID: 11400000, guid: 2d50b9af5fecd440d9c1f34c2cd32921, type: 2}
