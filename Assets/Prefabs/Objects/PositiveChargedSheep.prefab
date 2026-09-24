@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2c975328f4b4e9c94324b890a15863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargedObject
-  <Charge>k__BackingField: 5
+  <Charge>k__BackingField: 7
   <Type>k__BackingField: 0
 --- !u!114 &8284370376386656596
 MonoBehaviour:

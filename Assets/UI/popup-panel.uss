@@ -7,4 +7,6 @@
 .popup-panel-onscreen {
     translate: none;
     transition: translate 0.3s ease-in-bounce;
+    /* don't love this being defined here... might be better if we check goal sheep for animation complete? */
+    transition-delay: 2.0s;
 }

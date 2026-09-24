@@ -16,6 +16,9 @@ public class GoalObject : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+        Debug.Log("goal object hit. outside if");
+        // TODO this conflicts with SheepGoalAnimationController... game state gets set to stage end
+        // before the actual animation collision stuff is triggered.
 		if (collision.gameObject.CompareTag("particle"))
         {
             // add some kind of UI element saying stage cleared

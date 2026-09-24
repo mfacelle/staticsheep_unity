@@ -108,5 +108,5 @@ MonoBehaviour:
   stageClearMenuName: StageClearPanel
   levelClearMenuName: LevelClearPanel
   levelFailMenuName: LevelFailPanel
-  stageClearTimeSec: 2
-  levelClearTimeSec: 3
+  stageClearTimeSec: 3
+  levelClearTimeSec: 4

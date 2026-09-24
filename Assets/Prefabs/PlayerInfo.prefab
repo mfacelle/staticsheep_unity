@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInfo
   <IsPersistent>k__BackingField: 1
+  StartingCurrentNumParticles: 20
   StartingCompleteLevelIdx: -1
+  StartingUnlockedParticles: 0
   playerProps: {fileID: 11400000, guid: 2d50b9af5fecd440d9c1f34c2cd32921, type: 2}

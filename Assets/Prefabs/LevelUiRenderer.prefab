@@ -126,17 +126,29 @@ MonoBehaviour:
   - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
   - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
   - {fileID: 1731615557789112711, guid: 27f775260f5ad46daada3b00f257dd80, type: 3}
-  buttonNames:
-  - ItemBtn1
-  - ItemBtn2
-  - ItemBtn3
-  - ItemBtn4
-  - ItemBtn5
-  - ItemBtn6
-  - ItemBtn7
-  - ItemBtn8
-  - ItemBtn9
-  - ItemBtn0
+  toolbarImgNames:
+  - ToolbarImg1
+  - ToolbarImg2
+  - ToolbarImg3
+  - ToolbarImg4
+  - ToolbarImg5
+  - ToolbarImg6
+  - ToolbarImg7
+  - ToolbarImg8
+  - ToolbarImg9
+  - ToolbarImg10
+  toolbarSprites:
+  - {fileID: 3540275962528052466, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: -6497502308808447619, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: -4996765586609034472, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: -6469024711195015271, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: 137312180224943160, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: -963294862457659609, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: -4363216455758401710, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: 8402514746232857033, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: 1767095910694681862, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  - {fileID: -7587797012793265479, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  toolbarLockedSprite: {fileID: -4864989032223722372, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
   particleLauncher: {fileID: 0}
 --- !u!114 &4662627671560290050
 MonoBehaviour:
@@ -153,4 +165,5 @@ MonoBehaviour:
   woolAmountLabelName: WoolAmountLabel
   levelLabelName: LevelLabel
   stageLabelName: StageLabel
+  minParticlesAlertThreshold: 10
   playerProperties: {fileID: 11400000, guid: 2d50b9af5fecd440d9c1f34c2cd32921, type: 2}

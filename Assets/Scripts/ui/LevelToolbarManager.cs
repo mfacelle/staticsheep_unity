@@ -16,7 +16,11 @@ public class LevelToolbarManager : MonoBehaviour
     [SerializeField] private GameObject[] particlePrefabs;
 
     // names of buttons, for setting up callbacks
-    [SerializeField] private string[] buttonNames;
+    [SerializeField] private string[] toolbarImgNames;
+
+    [SerializeField] private Sprite[] toolbarSprites;
+
+    [SerializeField] private Sprite toolbarLockedSprite;
 
     // instance of particle launcher, to set particle prefab on
     [SerializeField] private ParticleLauncher particleLauncher;
@@ -27,14 +31,21 @@ public class LevelToolbarManager : MonoBehaviour
     private void OnValidate()
     {
         // Check if sizes match
-        if (hotkeyActions != null && particlePrefabs != null && buttonNames != null &&
-           (hotkeyActions.Length != particlePrefabs.Length ||
-              hotkeyActions.Length != buttonNames.Length ||
-              particlePrefabs.Length != buttonNames.Length) )
+        int expectedSize = hotkeyActions.Length;
+        if (hotkeyActions != null && 
+            particlePrefabs != null && 
+            toolbarImgNames != null &&
+            toolbarSprites != null &&
+           (hotkeyActions.Length != expectedSize ||
+              hotkeyActions.Length != expectedSize ||
+              particlePrefabs.Length != expectedSize ||
+              toolbarSprites.Length != expectedSize ) )
         {
             Debug.LogError($"[Size Mismatch] Lengths need to match: hotkeyActions.Length={hotkeyActions.Length}" +
                $"; particlePrefabs.Length={particlePrefabs.Length}" + 
-               $"; buttonNames.Length={buttonNames.Length}", this);
+               $"; toolbarImgNames.Length={toolbarImgNames.Length}" +
+               $"; toolbarSprites.Length={toolbarSprites.Length}", 
+               this);
         }
     }
 
@@ -43,12 +54,16 @@ public class LevelToolbarManager : MonoBehaviour
         panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
 
+        int numUnlockedParticles = PlayerInfo.Instance.UnlockedParticles;
+
         // set up hotkey callbacks
         for (int idx = 0; idx < hotkeyActions.Length; idx++)
         {
-            // Debug.Log("setting callback for idx " + idx + ", hotkey: " + hotkeyActions[idx]);
-            int prefabIdx = idx;
-            hotkeyActions[idx].action.performed += ctx => SetParticlePrefab(prefabIdx);
+            // only allow callback if particle has been unlocked
+            if (idx+1 > numUnlockedParticles)
+            {
+                hotkeyActions[idx].action.performed += ctx => SetParticlePrefab(idx);
+            }
         }
     }
 
@@ -70,18 +85,21 @@ public class LevelToolbarManager : MonoBehaviour
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root)
     {
-        // query the buttons by the name used in UI builder
-        // TODO consider making these just a display, not real buttons
-        for (int idx = 0; idx < buttonNames.Length; idx++)
+        int numUnlockedParticles = PlayerInfo.Instance.UnlockedParticles;
+
+        for (int idx = 0; idx < toolbarImgNames.Length; idx++)
         {
-            Button button = root.Q<Button>(buttonNames[idx]);
-            if (button != null) 
+            Image toolbarImg = root.Q<Image>(toolbarImgNames[idx]);
+            if (toolbarImg != null)
             {
-                // register callback with lambda, providing the level to load
-                // TODO consider providing LevelLoader as a variable, not a singleton?
-                // Debug.Log("setting button callback for idx " + idx + ", button: " + buttonNames[idx]);
-                int prefabIdx = idx;
-                button.clicked += () => SetParticlePrefab(prefabIdx);
+                if (idx+1 > numUnlockedParticles)
+                {
+                    toolbarImg.sprite = toolbarLockedSprite;
+                }
+                else
+                {
+                    toolbarImg.sprite = toolbarSprites[idx];
+                }
             }
         }
     }

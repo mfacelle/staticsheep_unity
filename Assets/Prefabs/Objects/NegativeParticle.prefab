@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8d47c104d71455498cdfb363ecdf8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargedParticle
-  <Charge>k__BackingField: -5
+  <Charge>k__BackingField: -7
   <Type>k__BackingField: 0
 --- !u!212 &3408320289167437361
 SpriteRenderer:
@@ -98,12 +98,12 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7587797012793265479, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
+  m_Sprite: {fileID: 3540275962528052466, guid: 3548f4aefb2aa49cb863606b7bc878ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 0.12, y: 0.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

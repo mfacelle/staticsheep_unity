@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca89dc07bfb04ec89164c211e182755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParticleLauncher
-  initialSpeed: 4
+  initialSpeed: 6
   launchAction: {fileID: 44128164113523075, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   PhysicsManager: {fileID: 0}
   PlayerObject: {fileID: 0}

@@ -16,12 +16,14 @@ public class SheepAnimationController : MonoBehaviour
 
     // TODO include some logic to handle multiple animations, eventually
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	virtual protected void OnCollisionEnter2D(Collision2D collision)
     {
         // if hit with a particle, trigger animation
 		if (collision.gameObject.CompareTag("particle"))
         {
             animator.SetTrigger("SheepHit");
+
+            // TODO need base class for goal sheep, to ignore collisions when stage ends
         }
     }
 

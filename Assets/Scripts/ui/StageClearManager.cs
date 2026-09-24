@@ -15,10 +15,10 @@ public class StageClearManager : MonoBehaviour
     [SerializeField] private string levelFailMenuName = "LevelFailPanel";
 
     // how long to display stage clear panel before loading next stage
-    [SerializeField] private float stageClearTimeSec = 2.0f;
+    [SerializeField] private float stageClearTimeSec = 3.0f;
 
     // how long to display level clear panel before loading next stage
-    [SerializeField] private float levelClearTimeSec = 3.0f;
+    [SerializeField] private float levelClearTimeSec = 4.0f;
 
 
     private PanelRenderer panelRenderer;
@@ -73,7 +73,6 @@ public class StageClearManager : MonoBehaviour
         if (LevelLoader.Instance.IsLastStage())
         {
             // display level clear menu and set timer for that
-            // levelClearMenu.style.display = DisplayStyle.Flex;
             levelClearMenu.RemoveFromClassList("popup-panel-offscreen");
             levelClearMenu.AddToClassList("popup-panel-onscreen");
             StartCoroutine(WaitAndLoadNextStage(levelClearTimeSec));
@@ -81,7 +80,6 @@ public class StageClearManager : MonoBehaviour
         else
         {
             // display stage clear menu and set timer for that
-            // stageClearMenu.style.display = DisplayStyle.Flex;
             stageClearMenu.RemoveFromClassList("popup-panel-offscreen");
             stageClearMenu.AddToClassList("popup-panel-onscreen");
             StartCoroutine(WaitAndLoadNextStage(stageClearTimeSec));
@@ -90,7 +88,6 @@ public class StageClearManager : MonoBehaviour
 
     private IEnumerator WaitAndLoadNextStage(float waitTimeAmountSec)
     {
-        
         GameStateManager.Instance.SetGameState(GameStateManager.GameState.StageEnd);
 
         yield return new WaitForSeconds(waitTimeAmountSec);

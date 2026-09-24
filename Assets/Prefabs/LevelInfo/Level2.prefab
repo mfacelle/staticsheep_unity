@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187bee6a8d80f431fb793bd856af68a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelInfo
-  <Name>k__BackingField: level2
+  <Name>k__BackingField: Level 2
   <LevelIndex>k__BackingField: 1
-  <InitialNumParticles>k__BackingField: 100
+  <InitialNumParticles>k__BackingField: 60
   <Stages>k__BackingField:
   - level2_stage1
   - level2_stage2
@@ -56,5 +56,3 @@ MonoBehaviour:
   - level2_stage6
   - level2_stage7
   - level2_stage8
-  - level2_stage9
-  - level2_stage10

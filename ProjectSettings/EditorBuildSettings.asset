@@ -24,19 +24,19 @@ EditorBuildSettings:
     path: Assets/Scenes/level1/level1_stage5.unity
     guid: 38d96e27a7c394216a37457d69b9af53
   - enabled: 1
-    path: Assets/Scenes/level1/level1_stage10.unity
+    path: Assets/Scenes/level1/level1_stage6.unity
     guid: 699876fdcc18348ad959a87a3b16e660
   - enabled: 1
-    path: Assets/Scenes/level1/level1_stage6.unity
+    path: Assets/Scenes/level1/level1_stage7.unity
     guid: 83b167c09acdb406abedc4757c10a39f
   - enabled: 1
     path: Assets/Scenes/level1/level1_stage8.unity
     guid: 3c8a94a13b7d23040acc50ff53bb0144
   - enabled: 1
-    path: Assets/Scenes/level1/level1_stage7.unity
+    path: Assets/Scenes/unused/level1_stage9.unity
     guid: 4a2e5ac17582e477ba98181e5b065ddf
   - enabled: 1
-    path: Assets/Scenes/level1/level1_stage9.unity
+    path: Assets/Scenes/unused/level1_stage10.unity
     guid: 87173948592be4562aea45434efaa4c0
   - enabled: 1
     path: Assets/Scenes/level2/level2_stage1.unity
@@ -63,13 +63,34 @@ EditorBuildSettings:
     path: Assets/Scenes/level2/level2_stage8.unity
     guid: 93026dec0aba84bc6a63e6bd314d1af2
   - enabled: 1
-    path: Assets/Scenes/level2/level2_stage9.unity
+    path: Assets/Scenes/unused/level2_stage9.unity
     guid: 5a2c628630025a045aaf3377a6171923
   - enabled: 1
-    path: Assets/Scenes/level2/level2_stage10.unity
+    path: Assets/Scenes/unused/level2_stage10.unity
     guid: 9ce5c6e9d7a342240b1d5b628cc1256c
   - enabled: 1
     path: Assets/Scenes/level3/level3_stage1.unity
     guid: cc7b4a9f5e06143dcbaf12735de3d5da
+  - enabled: 1
+    path: Assets/Scenes/level3/level3_stage2.unity
+    guid: 2b3ae1144cb034ec58fd934b2d957ece
+  - enabled: 1
+    path: Assets/Scenes/level3/level3_stage3.unity
+    guid: 8f482cbf8683944c7ae337fd37519e45
+  - enabled: 1
+    path: Assets/Scenes/level3/level3_stage4.unity
+    guid: a0d87f720ef58482eaf5c22d1f5c9844
+  - enabled: 1
+    path: Assets/Scenes/level3/level3_stage5.unity
+    guid: bc3468b73a414440d972b821e4e7ee2b
+  - enabled: 1
+    path: Assets/Scenes/level3/level3_stage6.unity
+    guid: 42c8eb44fb1c1486c95b5c02b767f8de
+  - enabled: 1
+    path: Assets/Scenes/level3/level3_stage7.unity
+    guid: 905ef82e1d9f44eb19c7b9abbfd2144c
+  - enabled: 1
+    path: Assets/Scenes/level3/level3_stage8.unity
+    guid: f9f2455e11f8b4c0399ceed6d154409e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
